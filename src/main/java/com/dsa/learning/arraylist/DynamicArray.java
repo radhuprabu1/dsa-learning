@@ -11,16 +11,16 @@ import java.util.NoSuchElementException;
  */
 public class DynamicArray<T> implements Iterable<T>{
 
-	private T arr[]; // Array to store elements
+	private T[] arr; // Array to store elements
 	private int size;
 	private int capacity;
-	private static final int initialCapacity = 3;
+	private static final int INITIAL_CAPACITY = 3;
 
 	@SuppressWarnings("unchecked")
 	public DynamicArray() {
 		size = 0;
-		arr = (T[]) new Object[initialCapacity]; // Create a generic array
-		capacity = initialCapacity;
+		arr = (T[]) new Object[INITIAL_CAPACITY]; // Create a generic array
+		capacity = INITIAL_CAPACITY;
 
 	}
 
@@ -68,7 +68,7 @@ public class DynamicArray<T> implements Iterable<T>{
 			arr[i-1] = arr[i];
 		}
 		size--;
-		if(capacity > 3*size && capacity > initialCapacity) {
+		if(capacity > 3*size && capacity > INITIAL_CAPACITY) {
 			shrinkArray();
 		}
 	}
